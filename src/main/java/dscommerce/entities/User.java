@@ -1,4 +1,4 @@
-package com.murilomartins.dscommerce.entities;
+package dscommerce.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

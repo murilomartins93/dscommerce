@@ -1,4 +1,4 @@
-package com.murilomartins.dscommerce.entities;
+package dscommerce.entities;
 
 import java.time.Instant;
 
