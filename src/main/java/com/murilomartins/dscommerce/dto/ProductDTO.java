@@ -1,6 +1,6 @@
-package dscommerce.dto;
+package com.murilomartins.dscommerce.dto;
 
-import dscommerce.entities.Product;
+import com.murilomartins.dscommerce.entities.Product;
 
 public class ProductDTO {
 

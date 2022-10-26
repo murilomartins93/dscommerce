@@ -1,11 +1,12 @@
-package dscommerce.entities;
+package com.murilomartins.dscommerce.entities;
 
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import dscommerce.enums.OrderStatus;
+import com.murilomartins.dscommerce.enums.OrderStatus;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

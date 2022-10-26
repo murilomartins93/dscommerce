@@ -1,4 +1,4 @@
-package dscommerce.enums;
+package com.murilomartins.dscommerce.enums;
 
 public enum OrderStatus {
 	WAITING_PAYMENT,
