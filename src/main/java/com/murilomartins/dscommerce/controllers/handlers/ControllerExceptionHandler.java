@@ -14,7 +14,7 @@ import com.murilomartins.dscommerce.dto.ValidationError;
 import com.murilomartins.dscommerce.services.exceptions.DatabaseException;
 import com.murilomartins.dscommerce.services.exceptions.ResourceNotFoundException;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
