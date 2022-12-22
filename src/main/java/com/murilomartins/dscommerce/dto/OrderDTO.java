@@ -4,6 +4,8 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.murilomartins.dscommerce.entities.Order;
 import com.murilomartins.dscommerce.entities.OrderItem;
 import com.murilomartins.dscommerce.enums.OrderStatus;
@@ -18,6 +20,7 @@ public class OrderDTO {
 	
 	private PaymentDTO payment;
 	
+	@NotEmpty(message = "Must have at least one item")
 	private List<OrderItemDTO> items = new ArrayList<>();
 
 	public OrderDTO(Long id, Instant moment, OrderStatus status, ClientDTO client, PaymentDTO payment) {
