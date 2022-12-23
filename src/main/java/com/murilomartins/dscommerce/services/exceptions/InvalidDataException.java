@@ -8,9 +8,9 @@ public class InvalidDataException extends RuntimeException {
 	
 	private BindingResult bindingResult;
 
-	public InvalidDataException(String msg, BindingResult result) {
+	public InvalidDataException(String msg, BindingResult bindingResult) {
 		super(msg);
-		this.bindingResult = result;
+		this.bindingResult = bindingResult;
 	}
 
 	public BindingResult getBindingResult() {
