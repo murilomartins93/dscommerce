@@ -2,6 +2,8 @@ package com.murilomartins.dscommerce.controllers.handlers;
 
 import java.time.Instant;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -13,9 +15,8 @@ import com.murilomartins.dscommerce.dto.CustomError;
 import com.murilomartins.dscommerce.dto.ValidationError;
 import com.murilomartins.dscommerce.services.exceptions.DatabaseException;
 import com.murilomartins.dscommerce.services.exceptions.ForbiddenException;
+import com.murilomartins.dscommerce.services.exceptions.InvalidDataException;
 import com.murilomartins.dscommerce.services.exceptions.ResourceNotFoundException;
-
-import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
@@ -44,6 +45,16 @@ public class ControllerExceptionHandler {
 		return ResponseEntity.status(status).body(err);
 	}
 	
+	@ExceptionHandler(InvalidDataException.class)
+	public ResponseEntity<CustomError> invalidData(InvalidDataException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
+		ValidationError err = new ValidationError(Instant.now(), status.value(), "Invalid data", request.getRequestURI());
+		for (FieldError f : e.getBindingResult().getFieldErrors()) {
+			err.addError(f.getField(), f.getDefaultMessage());
+		}
+		return ResponseEntity.status(status).body(err);
+	}
+		
 	@ExceptionHandler(ForbiddenException.class)
 	public ResponseEntity<CustomError> forbidden(ForbiddenException e, HttpServletRequest request) {
 		HttpStatus status = HttpStatus.FORBIDDEN;
