@@ -15,7 +15,7 @@ import com.murilomartins.dscommerce.entities.Product;
 public class ProductDTO {
 
 	private Long id;
-	@Size(min = 3, max = 80, message = "Name must be between 6 and 20 characters long")
+	@Size(min = 3, max = 80, message = "Name must be between 3 and 80 characters long")
 	@NotBlank(message = "Required field")
 	private String name;
 	@Size(min = 10, message = "Minimum of 10 characters required")
